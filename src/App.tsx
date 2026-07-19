@@ -24,22 +24,37 @@ import {
   Zap,
 } from "lucide-react";
 import {
+  adapt40,
+  cmcnDefinition,
+  industrializationDef,
+  knowledgeEconomy,
+  marxQuote,
   navItems,
   revolutions,
   rolesOfRevolution,
+  theoryAgenda,
+  vnCnhDef,
   vnContents,
   vnFeatures,
+  vnNecessity,
 } from "./data/content";
 import { FloatingChips } from "./components/FloatingChips";
 import { PillNav } from "./components/PillNav";
 import {
+  Adapt40Grid,
+  Box61Table,
   ContentFlow,
   FigureImage,
   HumanCoreDiagram,
+  KnowledgePanel,
   LeapfrogDiagram,
+  MarxStages,
   ModelCompare,
+  NecessityPair,
   RevolutionPath,
   RoleCycle,
+  TechPathsDiagram,
+  TheoryAgenda,
 } from "./components/TheoryVisuals";
 import { useActiveSection } from "./hooks/useActiveSection";
 import { useReveal } from "./hooks/useReveal";
@@ -56,7 +71,8 @@ const navIcons = {
 
 const revIcons = [Hammer, Zap, Cpu, Brain];
 const roleIcons = [Factory, Workflow, Building2];
-const contentIcons = [Rocket, Microscope, Workflow, Cpu];
+const contentIcons = [Rocket, Microscope, Workflow, Layers, Cpu];
+const featureIcons = [CheckCircle2, Brain, Building2, Globe2];
 const pillarIcons = [GraduationCap, Link2, Globe2];
 
 export default function App() {
@@ -75,8 +91,8 @@ export default function App() {
     <>
       <div className={`top-chrome${scrolled ? " scrolled" : ""}`}>
         <a className={`brand-block${scrolled ? " scrolled" : ""}`} href="#mo-dau">
-          <div className="brand-title">Chip & CNH–HĐH VN</div>
-          <div className="brand-sub">Đi tắt đón đầu trong kỷ nguyên 4.0</div>
+          <div className="brand-title">CNH–HĐH Việt Nam</div>
+          <div className="brand-sub">Lý thuyết 6.1 · Kỷ nguyên 4.0</div>
         </a>
         <PillNav
           items={navItems}
@@ -96,20 +112,20 @@ export default function App() {
               <BookOpen />
               Kinh tế chính trị Mác – Lênin
             </div>
-            <h1>Công nghiệp hóa, hiện đại hóa và chiến lược bán dẫn</h1>
+            <h1>Công nghiệp hóa, hiện đại hóa ở Việt Nam</h1>
             <p className="hero-sub">
-              Từ ốc vít đến chip — biện luận “đi tắt đón đầu” khi Việt Nam muốn
-              trở thành mắt xích trong chuỗi cung ứng toàn cầu
+              Lý thuyết 6.1.1–6.1.2: từ cách mạng công nghiệp đến CNH–HĐH trong
+              kỷ nguyên 4.0 — gắn tình huống chiến lược bán dẫn
             </p>
             <div className="hero-meta">
               <span className="hero-chip">
-                <Cpu /> Session 24 – 26
+                <BookOpen /> Mục 6.1.1 – 6.1.2
               </span>
               <span className="hero-chip">
-                <Sparkles /> Progress Test · ~10 phút
+                <Sparkles /> Lý thuyết · 10–15 phút
               </span>
               <span className="hero-chip">
-                <HelpCircle /> Tình huống giả định
+                <HelpCircle /> + Tình huống chip
               </span>
             </div>
             <div className="scroll-cue">
@@ -221,24 +237,46 @@ export default function App() {
         <section className="section theory-zone" id="ly-thuyet">
           <div className="wrap">
             <p className="section-label reveal">
-              <BookOpen /> I · Session 24
+              <BookOpen /> Lý thuyết · 6.1.1 – 6.1.2
             </p>
-            <h2 className="reveal">Khái quát cách mạng công nghiệp</h2>
+            <h2 className="reveal">Công nghiệp hóa, hiện đại hóa ở Việt Nam</h2>
             <p className="lead reveal">
-              Cách mạng công nghiệp là những bước phát triển nhảy vọt về chất
-              trình độ tư liệu lao động, kéo theo thay đổi căn bản phân công lao
-              động xã hội và năng suất lao động cao hơn hẳn.
+              Khung lý thuyết để thuyết trình 10–15 phút: CMCN → mô hình CNH thế
+              giới → tính tất yếu và nội dung CNH–HĐH Việt Nam trong bối cảnh 4.0.
             </p>
 
+            <TheoryAgenda items={theoryAgenda} />
+
+            {/* —— 6.1.1.1 CMCN —— */}
+            <p className="section-label reveal theory-sublabel">
+              <Hammer /> 6.1.1.1 · Cách mạng công nghiệp
+            </p>
+            <h2 className="reveal theory-h2">Khái niệm và lịch sử các cuộc CMCN</h2>
+            <p className="lead reveal">{cmcnDefinition}</p>
+
             <blockquote className="quote-block reveal">
-              “Áp dụng phổ biến những tính năng mới trong kỹ thuật – công nghệ
-              vào đời sống xã hội — đó là bản chất của mỗi cuộc cách mạng công
-              nghiệp.”
+              Áp dụng phổ biến những tính năng mới trong kỹ thuật – công nghệ vào
+              đời sống xã hội — đó là bản chất của mỗi cuộc cách mạng công nghiệp.
             </blockquote>
 
             <RevolutionPath />
+            <Box61Table />
+            <MarxStages />
 
-            <div className="timeline">
+            <div className="media-row">
+              <FigureImage
+                src="/images/theory-industry.jpg"
+                alt="Công nghiệp và máy móc"
+                caption="CMCN 1–2: cơ giới hóa và điện – cơ khí thay đổi tư liệu lao động."
+              />
+              <FigureImage
+                src="/images/theory-ai.jpg"
+                alt="Công nghệ số và AI"
+                caption="CMCN 3–4: CNTT, số hóa rồi AI · IoT · big data."
+              />
+            </div>
+
+            <div className="timeline rev-detail">
               {revolutions.map((r, i) => {
                 const Icon = revIcons[i] ?? Cpu;
                 return (
@@ -248,22 +286,26 @@ export default function App() {
                     </div>
                     <div>
                       <p className="t-period">{r.period}</p>
-                      <h3 className="t-title">{r.title}</h3>
+                      <h3 className="t-title">
+                        {r.title}
+                        <span className="t-core">{r.core}</span>
+                      </h3>
+                      <p className="t-energy">{r.energy}</p>
                       <p className="t-text">{r.text}</p>
+                      <p className="t-mark">{r.mark}</p>
                     </div>
                   </article>
                 );
               })}
             </div>
 
-            <p className="section-label reveal" style={{ marginTop: "3rem" }}>
-              <Workflow /> Vai trò của CMCN
+            {/* —— Vai trò —— */}
+            <p className="section-label reveal theory-sublabel">
+              <Workflow /> Vai trò của CMCN đối với phát triển
             </p>
-            <h2 className="reveal" style={{ fontSize: "clamp(1.5rem, 3vw, 2.1rem)" }}>
-              Ba tác động then chốt tới phát triển
-            </h2>
+            <h2 className="reveal theory-h2">Ba tác động then chốt</h2>
             <RoleCycle />
-            <div className="card-grid">
+            <div className="card-grid role-detail">
               {rolesOfRevolution.map((item, i) => {
                 const Icon = roleIcons[i] ?? Factory;
                 return (
@@ -273,41 +315,45 @@ export default function App() {
                     </div>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
+                    <ul className="card-points">
+                      {item.points.map((pt) => (
+                        <li key={pt}>{pt}</li>
+                      ))}
+                    </ul>
                   </article>
                 );
               })}
             </div>
 
-            <p className="section-label reveal" style={{ marginTop: "3.5rem" }}>
-              <Factory /> Công nghiệp hóa
+            <blockquote className="quote-block marx-quote reveal">
+              <span className="quote-attr">C.Mác</span>
+              “{marxQuote}”
+            </blockquote>
+
+            {/* —— 6.1.1.2 CNH —— */}
+            <p className="section-label reveal theory-sublabel">
+              <Factory /> 6.1.1.2 · Công nghiệp hóa
             </p>
-            <h2 className="reveal">CNH là gì — và các mô hình trên thế giới</h2>
-            <p className="body-text reveal" style={{ marginTop: "1rem" }}>
-              Công nghiệp hóa là quá trình chuyển đổi nền sản xuất xã hội từ dựa
-              trên lao động thủ công là chính sang chủ yếu dựa trên lao động máy
-              móc, nhằm tạo ra năng suất lao động xã hội cao.
-            </p>
+            <h2 className="reveal theory-h2">CNH và các mô hình trên thế giới</h2>
+            <p className="lead reveal">{industrializationDef}</p>
             <ModelCompare />
+            <TechPathsDiagram />
           </div>
         </section>
 
         <section className="section section-band">
           <div className="wrap">
             <p className="section-label reveal">
-              <Globe2 /> II · Session 25
+              <Globe2 /> 6.1.2.1 · Tính tất yếu
             </p>
-            <h2 className="reveal">Tính tất yếu khách quan của CNH–HĐH ở Việt Nam</h2>
-            <p className="lead reveal">
-              CNH–HĐH không phải “mốt” chính sách, mà là yêu cầu khách quan để
-              nâng năng suất lao động, bảo vệ độc lập kinh tế và hội nhập chuỗi
-              giá trị toàn cầu.
-            </p>
-            <p className="body-text reveal" style={{ marginTop: "1.25rem" }}>
-              Công nghiệp hóa là quá trình chuyển đổi căn bản, toàn diện các
-              hoạt động sản xuất kinh doanh, dịch vụ và quản lý kinh tế – xã hội,
-              từ sử dụng sức lao động thủ công là chính sang sử dụng phổ biến sức
-              lao động với công nghệ, phương tiện, biện pháp tiên tiến hiện đại,
-              dựa trên phát triển công nghiệp và tiến bộ khoa học công nghệ.
+            <h2 className="reveal">Vì sao Việt Nam phải CNH–HĐH?</h2>
+            <p className="lead reveal">{vnCnhDef}</p>
+            <NecessityPair items={vnNecessity} />
+            <p className="body-text reveal nec-close">
+              Mỗi bước CNH–HĐH là một bước tăng cường cơ sở vật chất – kỹ thuật
+              của CNXH, hoàn thiện quan hệ sản xuất xã hội chủ nghĩa và nâng cao
+              đời sống nhân dân — nhân tố quyết định thắng lợi con đường đi lên
+              chủ nghĩa xã hội.
             </p>
           </div>
         </section>
@@ -315,35 +361,40 @@ export default function App() {
         <section className="section">
           <div className="wrap">
             <p className="section-label reveal">
-              <CheckCircle2 /> Đặc trưng ở Việt Nam
+              <CheckCircle2 /> Đặc điểm CNH–HĐH ở Việt Nam
             </p>
+            <h2 className="reveal">Bốn đặc trưng</h2>
             <FigureImage
               src="/images/theory-modern.jpg"
               alt="Đô thị và hiện đại hóa"
               caption="CNH–HĐH gắn hội nhập, kinh tế tri thức và mục tiêu dân giàu, nước mạnh."
             />
-            <ul className="feature-list">
-              {vnFeatures.map((f) => (
-                <li className="reveal" key={f}>
-                  <span className="fi">
-                    <CheckCircle2 />
-                  </span>
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="feature-grid">
+              {vnFeatures.map((f, i) => {
+                const Icon = featureIcons[i] ?? CheckCircle2;
+                return (
+                  <article className="feature-card reveal" key={f.title}>
+                    <div className="feature-icon">
+                      <Icon />
+                    </div>
+                    <h3>{f.title}</h3>
+                    <p>{f.text}</p>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </section>
 
         <section className="section section-alt">
           <div className="wrap">
             <p className="section-label reveal">
-              <Layers /> III · Session 26
+              <Layers /> 6.1.2.2 · Nội dung
             </p>
             <h2 className="reveal">Nội dung CNH–HĐH ở Việt Nam</h2>
             <p className="lead reveal">
               Từ tạo lập điều kiện chuyển đổi đến sẵn sàng thích ứng CMCN 4.0 —
-              đó là khung nội dung để hiểu chiến lược bán dẫn hôm nay.
+              khung nội dung gắn kinh tế tri thức và nhân lực chất lượng cao.
             </p>
             <ContentFlow />
             <div className="timeline">
@@ -355,13 +406,26 @@ export default function App() {
                       <Icon />
                     </div>
                     <div>
-                      <h3 className="t-title">{c.title}</h3>
+                      <h3 className="t-title">
+                        <span className="t-num-inline">{c.num}</span> {c.title}
+                      </h3>
                       <p className="t-text">{c.text}</p>
                     </div>
                   </article>
                 );
               })}
             </div>
+
+            <KnowledgePanel
+              oecd={knowledgeEconomy.oecd}
+              traits={knowledgeEconomy.traits}
+            />
+
+            <p className="section-label reveal theory-sublabel">
+              <Cpu /> Thích ứng cách mạng công nghiệp 4.0
+            </p>
+            <h2 className="reveal theory-h2">Bốn nhóm nội dung then chốt</h2>
+            <Adapt40Grid items={adapt40} />
           </div>
         </section>
 
@@ -501,22 +565,24 @@ export default function App() {
               <article className="reveal">
                 <span className="idx">01</span>
                 <p>
-                  CMCN 4.0 và chuỗi phân đoạn toàn cầu khiến CNH–HĐH không bắt
-                  buộc đi tuần tự như thế kỷ 19.
+                  CMCN là nhảy vọt tư liệu lao động; mỗi cuộc đổi cách sản xuất.
+                  4.0 lấy tri thức–công nghệ–đổi mới làm động lực — nước đi sau
+                  có cửa sổ rút ngắn khoảng cách.
                 </p>
               </article>
               <article className="reveal">
                 <span className="idx">02</span>
                 <p>
-                  Đi tắt đón đầu hợp lý khi chọn điểm đột phá có lan tỏa và đầu
-                  tư đủ điều kiện — nhân lực, thể chế, hấp thụ công nghệ.
+                  CNH có nhiều mô hình; Việt Nam học bài rút ngắn của Nhật/NICs —
+                  chiến lược công nghệ nhiều tầng, hội nhập và nội lực.
                 </p>
               </article>
               <article className="reveal">
                 <span className="idx">03</span>
                 <p>
-                  Với chip: con người là cốt lõi; máy móc và FDI chỉ phát huy khi
-                  có năng lực hấp thụ và giữ giá trị gia tăng.
+                  CNH–HĐH ở VN là tất yếu để xây CSVCKT CNXH. Trong 4.0: thể chế
+                  sáng tạo + kinh tế tri thức + nhân lực CLC là then chốt — máy
+                  móc/FDI chỉ phát huy khi có năng lực hấp thụ.
                 </p>
               </article>
             </div>

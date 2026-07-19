@@ -1,17 +1,21 @@
 import {
   ArrowRight,
   Brain,
+  CheckCircle2,
   Cpu,
   Factory,
   Globe2,
   GraduationCap,
   Hammer,
   Layers,
+  Lightbulb,
   Rocket,
+  Sparkles,
   Users,
   Workflow,
   Zap,
 } from "lucide-react";
+import { box61, industrializationModels, techPaths } from "../data/content";
 
 export function FigureImage({
   src,
@@ -30,12 +34,36 @@ export function FigureImage({
   );
 }
 
+export function TheoryAgenda({
+  items,
+}: {
+  items: { time: string; label: string; tip: string }[];
+}) {
+  return (
+    <div className="viz-panel agenda-panel reveal">
+      <div className="viz-head">
+        <span className="viz-kicker">Lộ trình 10–15 phút</span>
+        <p className="viz-title">Khung thuyết trình lý thuyết</p>
+      </div>
+      <ol className="agenda-track">
+        {items.map((item) => (
+          <li key={item.label}>
+            <span className="agenda-time">{item.time}</span>
+            <strong>{item.label}</strong>
+            <span className="agenda-tip">{item.tip}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 export function RevolutionPath() {
   const steps = [
     { icon: Hammer, label: "1.0", sub: "Hơi nước", tip: "Cơ giới hóa", tone: "a" },
     { icon: Zap, label: "2.0", sub: "Điện", tip: "Điện – cơ khí", tone: "b" },
     { icon: Cpu, label: "3.0", sub: "CNTT", tip: "Tự động hóa", tone: "c" },
-    { icon: Brain, label: "4.0", sub: "AI · Data", tip: "Nhảy vọt", tone: "d" },
+    { icon: Brain, label: "4.0", sub: "AI · IoT", tip: "Thực – ảo", tone: "d" },
   ];
 
   return (
@@ -74,17 +102,74 @@ export function RevolutionPath() {
   );
 }
 
+/** Hộp 6.1 — bảng đặc trưng */
+export function Box61Table() {
+  return (
+    <div className="viz-panel reveal">
+      <div className="viz-head">
+        <span className="viz-kicker">Hộp 6.1 · Giáo trình</span>
+        <p className="viz-title">Tóm tắt đặc trưng các cuộc CMCN</p>
+      </div>
+      <div className="box61-grid">
+        {box61.map((row, i) => (
+          <article className={`box61-card tone-${["a", "b", "c", "d"][i]}`} key={row.rev}>
+            <span className="box61-num">{row.rev}</span>
+            <p>{row.feature}</p>
+          </article>
+        ))}
+      </div>
+      <p className="viz-note">Nguồn: Nghiên cứu của Sogeti VINT, 2016 — trích giáo trình.</p>
+    </div>
+  );
+}
+
+/** Ba giai đoạn Mác */
+export function MarxStages() {
+  const stages = [
+    { title: "Hiệp tác giản đơn", tip: "Tăng năng suất xã hội" },
+    { title: "Công trường thủ công", tip: "Phát triển LLSX" },
+    { title: "Đại công nghiệp", tip: "Xã hội hóa lao động" },
+  ];
+
+  return (
+    <div className="viz-panel reveal marx-panel">
+      <div className="viz-head">
+        <span className="viz-kicker">C.Mác · CMCN lần 1</span>
+        <p className="viz-title">Ba giai đoạn phát triển</p>
+      </div>
+      <div className="marx-stages">
+        {stages.map((s, i) => (
+          <div className="marx-step" key={s.title}>
+            <span className="marx-idx">0{i + 1}</span>
+            <strong>{s.title}</strong>
+            <em>{s.tip}</em>
+            {i < stages.length - 1 && (
+              <span className="marx-arrow" aria-hidden>
+                <ArrowRight />
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+      <p className="viz-note">
+        Ba giai đoạn tăng năng suất · củng cố QHSX tư bản chủ nghĩa · chuyển sản
+        xuất nhỏ thủ công phân tán lên sản xuất lớn tập trung hiện đại.
+      </p>
+    </div>
+  );
+}
+
 export function RoleCycle() {
   const items = [
     {
       icon: Factory,
       label: "Lực lượng sản xuất",
-      text: "Thay đổi công cụ, năng lượng, tri thức.",
+      text: "Công cụ, năng lượng, tri thức, nhân lực.",
     },
     {
       icon: Workflow,
       label: "Quan hệ sản xuất",
-      text: "Tất yếu điều chỉnh quan hệ xã hội.",
+      text: "Sở hữu, phân phối, thể chế.",
     },
     {
       icon: Globe2,
@@ -119,33 +204,6 @@ export function RoleCycle() {
 }
 
 export function ModelCompare() {
-  const models = [
-    {
-      icon: Layers,
-      title: "Cổ điển",
-      path: "CN nhẹ → mở rộng dần",
-      time: "60–80 năm",
-      text: "Gắn CMCN lần 1; ít vốn, thu lợi nhanh nhưng lộ trình dài.",
-      tone: "a",
-    },
-    {
-      icon: Factory,
-      title: "Liên Xô (cũ)",
-      path: "Ưu tiên CN nặng",
-      time: "Rút ngắn thời gian",
-      text: "Tập trung cơ sở vật chất – kỹ thuật to lớn trong thời gian ngắn.",
-      tone: "b",
-    },
-    {
-      icon: Rocket,
-      title: "Nhật & NICs",
-      path: "Tiếp thu + ngành then chốt",
-      time: "Đi tắt có chọn lọc",
-      text: "Đi sau nhưng rút ngắn nhờ công nghệ, hội nhập và chọn điểm đột phá.",
-      tone: "c",
-    },
-  ];
-
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
@@ -153,8 +211,9 @@ export function ModelCompare() {
         <p className="viz-title">Ba mô hình công nghiệp hóa</p>
       </div>
       <div className="model-compare">
-        {models.map((m) => {
-          const Icon = m.icon;
+        {industrializationModels.map((m) => {
+          const icons = { a: Layers, b: Factory, c: Rocket } as const;
+          const Icon = icons[m.tone];
           return (
             <article className={`model-card tone-${m.tone}`} key={m.title}>
               <div className="model-top">
@@ -164,6 +223,7 @@ export function ModelCompare() {
                 <span className="model-pill">{m.time}</span>
               </div>
               <h4>{m.title}</h4>
+              <p className="model-sub">{m.subtitle}</p>
               <p className="model-path">{m.path}</p>
               <p className="model-text">{m.text}</p>
             </article>
@@ -174,19 +234,48 @@ export function ModelCompare() {
   );
 }
 
+export function TechPathsDiagram() {
+  return (
+    <div className="viz-panel reveal">
+      <div className="viz-head">
+        <span className="viz-kicker">Nhật Bản & NICs</span>
+        <p className="viz-title">Ba con đường tiếp thu công nghệ</p>
+      </div>
+      <div className="tech-paths">
+        {techPaths.map((p) => (
+          <article
+            className={`tech-path-card${p.highlight ? " highlight" : ""}`}
+            key={p.num}
+          >
+            <span className="tech-num">{p.num}</span>
+            <h4>{p.title}</h4>
+            <p>{p.text}</p>
+            {p.highlight && (
+              <span className="tech-badge">
+                <Sparkles /> Gợi ý cho Việt Nam
+              </span>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function ContentFlow() {
   const steps = [
     { icon: Rocket, label: "Điều kiện chuyển đổi" },
-    { icon: Cpu, label: "Khoa học – công nghệ" },
+    { icon: Cpu, label: "KH–CN & kinh tế tri thức" },
     { icon: Workflow, label: "Cơ cấu kinh tế" },
-    { icon: Brain, label: "Thích ứng CMCN 4.0" },
+    { icon: Layers, label: "Hoàn thiện QHSX" },
+    { icon: Brain, label: "Thích ứng 4.0" },
   ];
 
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
         <span className="viz-kicker">Lộ trình nội dung</span>
-        <p className="viz-title">CNH–HĐH ở Việt Nam gồm 4 trụ</p>
+        <p className="viz-title">CNH–HĐH ở Việt Nam gồm 5 trụ</p>
       </div>
       <div className="content-flow">
         {steps.map((s, i) => {
@@ -207,6 +296,74 @@ export function ContentFlow() {
           );
         })}
       </div>
+    </div>
+  );
+}
+
+export function NecessityPair({
+  items,
+}: {
+  items: { num: string; title: string; text: string }[];
+}) {
+  return (
+    <div className="necessity-grid">
+      {items.map((item) => (
+        <article className="necessity-card reveal" key={item.num}>
+          <span className="nec-num">{item.num}</span>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+export function KnowledgePanel({
+  oecd,
+  traits,
+}: {
+  oecd: string;
+  traits: string[];
+}) {
+  return (
+    <div className="viz-panel reveal knowledge-panel">
+      <div className="viz-head">
+        <span className="viz-kicker">OECD 1995</span>
+        <p className="viz-title">Kinh tế tri thức</p>
+      </div>
+      <blockquote className="knowledge-quote">{oecd}</blockquote>
+      <ul className="knowledge-traits">
+        {traits.map((t) => (
+          <li key={t}>
+            <CheckCircle2 />
+            <span>{t}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export function Adapt40Grid({
+  items,
+}: {
+  items: { title: string; text: string }[];
+}) {
+  const icons = [Lightbulb, Cpu, Globe2, GraduationCap];
+  return (
+    <div className="adapt40-grid">
+      {items.map((item, i) => {
+        const Icon = icons[i] ?? Sparkles;
+        return (
+          <article className="adapt40-card reveal" key={item.title}>
+            <div className="adapt40-icon">
+              <Icon />
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        );
+      })}
     </div>
   );
 }

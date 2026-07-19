@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import {
   ArrowDown,
   BookOpen,
@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   Cpu,
   Factory,
-  FlaskConical,
   Globe2,
   GraduationCap,
   Hammer,
@@ -25,6 +24,8 @@ import {
 } from "lucide-react";
 import {
   adapt40,
+  answerQuestion1,
+  answerQuestion2,
   cmcnDefinition,
   industrializationDef,
   knowledgeEconomy,
@@ -32,6 +33,7 @@ import {
   navItems,
   revolutions,
   rolesOfRevolution,
+  sessionQuestions,
   theoryAgenda,
   vnCnhDef,
   vnContents,
@@ -91,8 +93,8 @@ export default function App() {
     <>
       <div className={`top-chrome${scrolled ? " scrolled" : ""}`}>
         <a className={`brand-block${scrolled ? " scrolled" : ""}`} href="#mo-dau">
-          <div className="brand-title">CNH–HĐH Việt Nam</div>
-          <div className="brand-sub">Lý thuyết 6.1 · Kỷ nguyên 4.0</div>
+          <div className="brand-title">Công nghiệp hóa, hiện đại hóa Việt Nam</div>
+          <div className="brand-sub">Lý thuyết 6.1 · Kỷ nguyên cách mạng công nghiệp lần thứ tư</div>
         </a>
         <PillNav
           items={navItems}
@@ -114,8 +116,8 @@ export default function App() {
             </div>
             <h1>Công nghiệp hóa, hiện đại hóa ở Việt Nam</h1>
             <p className="hero-sub">
-              Lý thuyết 6.1.1–6.1.2: từ cách mạng công nghiệp đến CNH–HĐH trong
-              kỷ nguyên 4.0 — gắn tình huống chiến lược bán dẫn
+              Lý thuyết 6.1.1–6.1.2: từ cách mạng công nghiệp đến công nghiệp hóa, hiện đại hóa trong
+              Kỷ nguyên cách mạng công nghiệp lần thứ tư — gắn tình huống chiến lược bán dẫn
             </p>
             <div className="hero-meta">
               <span className="hero-chip">
@@ -149,12 +151,11 @@ export default function App() {
                 <p className="body-text">
                   Chính phủ đặt mục tiêu đào tạo 50.000 kỹ sư bán dẫn và trở thành
                   mắt xích quan trọng cạnh các ông lớn như Nvidia, Intel. Chip
-                  không chỉ là một sản phẩm — mà là hạ tầng của CMCN 4.0: AI,
-                  điện toán, tự động hóa.
+                  không chỉ là một sản phẩm — mà là hạ tầng của cách mạng công nghiệp lần thứ tư: trí tuệ nhân tạo, điện toán, tự động hóa.
                 </p>
                 <p className="body-text">
                   Ngay lập tức nổi lên hai luồng ý kiến đối lập: một bên thấy đây
-                  là duy ý chí khi phụ trợ còn yếu; một bên tin CMCN 4.0 cho phép
+                  là duy ý chí khi phụ trợ còn yếu; một bên tin cách mạng công nghiệp lần thứ tư cho phép
                   nước đi sau nhảy vọt.
                 </p>
               </article>
@@ -171,14 +172,14 @@ export default function App() {
                     <Link2 />
                   </div>
                   <strong>Mắt xích</strong>
-                  <span>trong chuỗi chip toàn cầu (design / fab / OSAT)</span>
+                  <span>trong chuỗi chip toàn cầu (thiết kế / sản xuất chip / đóng gói kiểm thử)</span>
                 </div>
                 <div className="stat">
                   <div className="stat-icon">
                     <Brain />
                   </div>
-                  <strong>CMCN 4.0</strong>
-                  <span>AI · big data · kết nối — nền tảng xuyên ngành</span>
+                  <strong>Cách mạng công nghiệp lần thứ tư</strong>
+                  <span>trí tuệ nhân tạo · dữ liệu lớn · kết nối — nền tảng xuyên ngành</span>
                 </div>
               </div>
             </div>
@@ -205,7 +206,7 @@ export default function App() {
                 <h3>Cửa sổ nhảy vọt</h3>
                 <p>
                   Nếu cứ đợi làm xong ốc vít mới làm chip thì mãi mãi đi sau.
-                  CMCN 4.0 cho phép các nước đi sau có thể nhảy vọt — đi tắt đón
+                  Cách mạng công nghiệp lần thứ tư cho phép các nước đi sau có thể nhảy vọt — đi tắt đón
                   đầu.
                 </p>
                 <p className="quote">
@@ -215,21 +216,15 @@ export default function App() {
             </div>
 
             <div className="questions">
-              <article className="q-card reveal">
-                <span className="q-num">01</span>
-                <p>
-                  Dựa trên đặc điểm CMCN 4.0 và lý luận “đi tắt đón đầu”, vì sao
-                  CNH–HĐH ngày nay không nhất thiết tuân trình tự tuần tự như
-                  thế kỷ 19?
-                </p>
-              </article>
-              <article className="q-card reveal">
-                <span className="q-num">02</span>
-                <p>
-                  Vai trò nguồn nhân lực chất lượng cao? Để làm chip, yếu tố cốt
-                  lõi là máy móc hay con người?
-                </p>
-              </article>
+              {sessionQuestions.map((q) => (
+                <article className="q-card reveal" key={q.id}>
+                  <span className="q-num">{q.num}</span>
+                  <p>{q.question}</p>
+                  <a className="q-jump" href={`#tra-loi-${q.id}`}>
+                    Xem câu trả lời ↓
+                  </a>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -241,17 +236,17 @@ export default function App() {
             </p>
             <h2 className="reveal">Công nghiệp hóa, hiện đại hóa ở Việt Nam</h2>
             <p className="lead reveal">
-              Khung lý thuyết để thuyết trình 10–15 phút: CMCN → mô hình CNH thế
-              giới → tính tất yếu và nội dung CNH–HĐH Việt Nam trong bối cảnh 4.0.
+              Khung lý thuyết để thuyết trình 10–15 phút: cách mạng công nghiệp → mô hình công nghiệp hóa thế
+              giới → tính tất yếu và nội dung công nghiệp hóa, hiện đại hóa Việt Nam trong bối cảnh cách mạng công nghiệp lần thứ tư.
             </p>
 
             <TheoryAgenda items={theoryAgenda} />
 
-            {/* —— 6.1.1.1 CMCN —— */}
+            {/* —— 6.1.1.1 Cách mạng công nghiệp —— */}
             <p className="section-label reveal theory-sublabel">
               <Hammer /> 6.1.1.1 · Cách mạng công nghiệp
             </p>
-            <h2 className="reveal theory-h2">Khái niệm và lịch sử các cuộc CMCN</h2>
+            <h2 className="reveal theory-h2">Khái niệm và lịch sử các cuộc cách mạng công nghiệp</h2>
             <p className="lead reveal">{cmcnDefinition}</p>
 
             <blockquote className="quote-block reveal">
@@ -267,12 +262,12 @@ export default function App() {
               <FigureImage
                 src="/images/theory-industry.jpg"
                 alt="Công nghiệp và máy móc"
-                caption="CMCN 1–2: cơ giới hóa và điện – cơ khí thay đổi tư liệu lao động."
+                caption="Cách mạng công nghiệp lần thứ nhất và thứ hai: cơ giới hóa và điện – cơ khí thay đổi tư liệu lao động."
               />
               <FigureImage
                 src="/images/theory-ai.jpg"
                 alt="Công nghệ số và AI"
-                caption="CMCN 3–4: CNTT, số hóa rồi AI · IoT · big data."
+                caption="Cách mạng công nghiệp lần thứ ba và thứ tư: công nghệ thông tin, số hóa rồi trí tuệ nhân tạo, Internet kết nối vạn vật, dữ liệu lớn."
               />
             </div>
 
@@ -301,7 +296,7 @@ export default function App() {
 
             {/* —— Vai trò —— */}
             <p className="section-label reveal theory-sublabel">
-              <Workflow /> Vai trò của CMCN đối với phát triển
+              <Workflow /> Vai trò của cách mạng công nghiệp đối với phát triển
             </p>
             <h2 className="reveal theory-h2">Ba tác động then chốt</h2>
             <RoleCycle />
@@ -330,11 +325,11 @@ export default function App() {
               “{marxQuote}”
             </blockquote>
 
-            {/* —— 6.1.1.2 CNH —— */}
+            {/* —— 6.1.1.2 Công nghiệp hóa —— */}
             <p className="section-label reveal theory-sublabel">
               <Factory /> 6.1.1.2 · Công nghiệp hóa
             </p>
-            <h2 className="reveal theory-h2">CNH và các mô hình trên thế giới</h2>
+            <h2 className="reveal theory-h2">Công nghiệp hóa và các mô hình trên thế giới</h2>
             <p className="lead reveal">{industrializationDef}</p>
             <ModelCompare />
             <TechPathsDiagram />
@@ -346,12 +341,12 @@ export default function App() {
             <p className="section-label reveal">
               <Globe2 /> 6.1.2.1 · Tính tất yếu
             </p>
-            <h2 className="reveal">Vì sao Việt Nam phải CNH–HĐH?</h2>
+            <h2 className="reveal">Vì sao Việt Nam phải công nghiệp hóa, hiện đại hóa?</h2>
             <p className="lead reveal">{vnCnhDef}</p>
             <NecessityPair items={vnNecessity} />
             <p className="body-text reveal nec-close">
-              Mỗi bước CNH–HĐH là một bước tăng cường cơ sở vật chất – kỹ thuật
-              của CNXH, hoàn thiện quan hệ sản xuất xã hội chủ nghĩa và nâng cao
+              Mỗi bước công nghiệp hóa, hiện đại hóa là một bước tăng cường cơ sở vật chất – kỹ thuật
+              của chủ nghĩa xã hội, hoàn thiện quan hệ sản xuất xã hội chủ nghĩa và nâng cao
               đời sống nhân dân — nhân tố quyết định thắng lợi con đường đi lên
               chủ nghĩa xã hội.
             </p>
@@ -361,13 +356,13 @@ export default function App() {
         <section className="section">
           <div className="wrap">
             <p className="section-label reveal">
-              <CheckCircle2 /> Đặc điểm CNH–HĐH ở Việt Nam
+              <CheckCircle2 /> Đặc điểm công nghiệp hóa, hiện đại hóa ở Việt Nam
             </p>
             <h2 className="reveal">Bốn đặc trưng</h2>
             <FigureImage
               src="/images/theory-modern.jpg"
               alt="Đô thị và hiện đại hóa"
-              caption="CNH–HĐH gắn hội nhập, kinh tế tri thức và mục tiêu dân giàu, nước mạnh."
+              caption="công nghiệp hóa, hiện đại hóa gắn hội nhập, kinh tế tri thức và mục tiêu dân giàu, nước mạnh."
             />
             <div className="feature-grid">
               {vnFeatures.map((f, i) => {
@@ -391,9 +386,9 @@ export default function App() {
             <p className="section-label reveal">
               <Layers /> 6.1.2.2 · Nội dung
             </p>
-            <h2 className="reveal">Nội dung CNH–HĐH ở Việt Nam</h2>
+            <h2 className="reveal">Nội dung công nghiệp hóa, hiện đại hóa ở Việt Nam</h2>
             <p className="lead reveal">
-              Từ tạo lập điều kiện chuyển đổi đến sẵn sàng thích ứng CMCN 4.0 —
+              Từ tạo lập điều kiện chuyển đổi đến sẵn sàng thích ứng cách mạng công nghiệp lần thứ tư —
               khung nội dung gắn kinh tế tri thức và nhân lực chất lượng cao.
             </p>
             <ContentFlow />
@@ -422,7 +417,7 @@ export default function App() {
             />
 
             <p className="section-label reveal theory-sublabel">
-              <Cpu /> Thích ứng cách mạng công nghiệp 4.0
+              <Cpu /> Thích ứng cách mạng công nghiệp lần thứ tư
             </p>
             <h2 className="reveal theory-h2">Bốn nhóm nội dung then chốt</h2>
             <Adapt40Grid items={adapt40} />
@@ -432,125 +427,126 @@ export default function App() {
         <section className="section" id="bien-luan">
           <div className="wrap">
             <p className="section-label reveal">
-              <Lightbulb /> IV · Biện luận
+              <Lightbulb /> Biện luận · Trả lời hai câu hỏi
             </p>
-            <h2 className="reveal">Vì sao không bắt buộc tuần tự như thế kỷ 19?</h2>
+            <h2 className="reveal">Dùng lý thuyết session để trả lời</h2>
             <p className="lead reveal">
-              Trả lời câu hỏi 01 — gắn đặc điểm CMCN 4.0 với lý luận đi tắt đón
-              đầu.
+              Hai câu trả lời dưới đây bám đặc điểm Cách mạng công nghiệp lần thứ
+              tư, lý luận đi tắt đón đầu, mô hình công nghiệp hóa rút ngắn, kinh tế
+              tri thức và nội dung công nghiệp hóa, hiện đại hóa ở Việt Nam.
             </p>
 
-            <LeapfrogDiagram />
+            {/* —— Câu hỏi 01 —— */}
+            <article className="answer-block reveal" id="tra-loi-q1">
+              <header className="answer-head">
+                <span className="answer-badge">Câu hỏi 01</span>
+                <h3>{sessionQuestions[0].question}</h3>
+              </header>
 
-            <div className="card-grid two" style={{ marginTop: "2rem" }}>
-              <article className="info-card reveal">
-                <div className="card-icon">
-                  <Hammer />
-                </div>
-                <h3>Thế kỷ 19: tuyến tính</h3>
-                <p>
-                  Tri thức và vốn lan truyền chậm. CNH gắn máy hơi nước / cơ khí
-                  → trình tự gần như tuần tự: cơ khí → luyện kim → hóa chất →
-                  điện…
-                </p>
-              </article>
-              <article className="info-card reveal">
-                <div className="card-icon svg-warm">
-                  <Cpu />
-                </div>
-                <h3>CMCN 4.0: phân đoạn toàn cầu</h3>
-                <p>
-                  Chip, AI, phần mềm, dữ liệu là nền tảng xuyên ngành. Chuỗi cung
-                  ứng tách thành design / fab / OSAT — nước đi sau có thể chiếm
-                  một mắt xích trước khi hoàn thiện mọi “ốc vít”.
-                </p>
-              </article>
-            </div>
+              <div className="answer-verdict">
+                <strong>Kết luận trả lời</strong>
+                <p>{answerQuestion1.verdict}</p>
+              </div>
 
-            <blockquote className="quote-block reveal">
-              Đi tắt đón đầu không phải bỏ qua nền tảng, mà là đổi thứ tự ưu tiên:
-              chọn điểm đột phá có lan tỏa (bán dẫn + nhân lực) đồng thời nâng
-              phụ trợ — nhảy vọt có điều kiện, không phải duy ý chí.
-            </blockquote>
+              <p className="answer-label">Lý thuyết session dùng để biện luận</p>
+              <div className="answer-theory-grid">
+                {answerQuestion1.theoryHooks.map((hook) => (
+                  <div className="answer-theory-card" key={hook.title}>
+                    <BookOpen />
+                    <h4>{hook.title}</h4>
+                    <p>{hook.text}</p>
+                  </div>
+                ))}
+              </div>
 
-            <p className="body-text reveal" style={{ marginTop: "1.5rem" }}>
-              Phản biện “duy ý chí” đúng nếu chỉ hô khẩu hiệu không có lộ trình
-              năng lực. Sai nếu hiểu nhảy vọt = nhảy có điều kiện: nhân lực, thể
-              chế, FDI có lan tỏa, hạ tầng. Chiến lược Việt Nam không phải “bỏ
-              ốc vít làm chip”, mà “làm chip như đòn bẩy kéo phụ trợ và nhân lực
-              lên”.
-            </p>
+              <LeapfrogDiagram />
 
-            <p className="section-label reveal" style={{ marginTop: "3.5rem" }}>
-              <Users /> V · Nhân lực
-            </p>
-            <h2 className="reveal">Cốt lõi là con người — không phải máy</h2>
-            <p className="lead reveal">
-              Trả lời câu hỏi 02 — chip là ngành tri thức–cường độ cao.
-            </p>
+              <p className="answer-label">Các luận điểm biện luận</p>
+              <ol className="answer-steps">
+                {answerQuestion1.arguments.map((arg, i) => (
+                  <li key={arg.title}>
+                    <span className="step-num">0{i + 1}</span>
+                    <div>
+                      <h4>{arg.title}</h4>
+                      <p>{arg.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
 
-            <HumanCoreDiagram />
+              <div className="answer-close">
+                <CheckCircle2 />
+                <p>{answerQuestion1.conclusion}</p>
+              </div>
+            </article>
 
-            <div className="diagram">
-              <div className="diagram-core reveal">
-                <div className="core-icon">
+            {/* —— Câu hỏi 02 —— */}
+            <article className="answer-block reveal" id="tra-loi-q2">
+              <header className="answer-head">
+                <span className="answer-badge warm">Câu hỏi 02</span>
+                <h3>{sessionQuestions[1].question}</h3>
+              </header>
+
+              <div className="answer-verdict warm">
+                <strong>Kết luận trả lời</strong>
+                <p>{answerQuestion2.verdict}</p>
+              </div>
+
+              <p className="answer-label">Lý thuyết session dùng để phân tích</p>
+              <div className="answer-theory-grid three">
+                {answerQuestion2.theoryHooks.map((hook) => (
+                  <div className="answer-theory-card" key={hook.title}>
+                    <BookOpen />
+                    <h4>{hook.title}</h4>
+                    <p>{hook.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              <HumanCoreDiagram />
+
+              <div className="compare-core">
+                <article className="compare-side need">
+                  <Factory />
+                  <h4>Máy móc — điều kiện cần</h4>
+                  <p>{answerQuestion2.machineRole}</p>
+                </article>
+                <article className="compare-side core">
                   <Users />
-                </div>
-                <h3>Nguồn nhân lực chất lượng cao</h3>
-                <p>
-                  Kỹ sư · kỹ thuật viên · hệ sinh thái đào tạo – doanh nghiệp
-                </p>
-              </div>
-              <div className="diagram-row">
-                <article className="info-card reveal">
-                  <div className="card-icon">
-                    <Factory />
-                  </div>
-                  <h3>Máy móc / vốn / FDI</h3>
-                  <p>
-                    Điều kiện cần: mua được thiết bị, thu hút nhà máy — nhưng
-                    không tự tạo năng lực cạnh tranh bền vững.
-                  </p>
-                </article>
-                <article className="info-card reveal">
-                  <div className="card-icon svg-warm">
-                    <FlaskConical />
-                  </div>
-                  <h3>Hấp thụ & giữ giá trị</h3>
-                  <p>
-                    Chỉ con người mới thiết kế IC, vận hành quy trình, R&D và lan
-                    tỏa tri thức vào công nghiệp phụ trợ.
-                  </p>
+                  <h4>Con người — yếu tố cốt lõi</h4>
+                  <p>{answerQuestion2.humanRole}</p>
                 </article>
               </div>
-            </div>
 
-            <blockquote className="quote-block reveal">
-              Mục tiêu 50.000 kỹ sư bán dẫn = đầu tư vào lực lượng sản xuất hiện
-              đại đúng nghĩa CNH–HĐH trong kỷ nguyên CMCN 4.0.
-            </blockquote>
+              <div className="answer-close">
+                <CheckCircle2 />
+                <p>{answerQuestion2.conclusion}</p>
+              </div>
+            </article>
 
             <p className="section-label reveal" style={{ marginTop: "3rem" }}>
-              <Rocket /> Tránh nóng vội
+              <Rocket /> Điều kiện để không rơi vào duy ý chí
             </p>
             <div className="card-grid">
-              {["Đào tạo", "Phụ trợ chọn lọc", "FDI lan tỏa"].map((title, i) => {
-                const Icon = pillarIcons[i];
-                const texts = [
-                  "Chương trình chuẩn quốc tế, thực tập doanh nghiệp — không chỉ con số trên giấy.",
-                  "Nâng vật liệu, cơ khí chính xác, logistics theo nhu cầu chuỗi bán dẫn — không đợi “xong hết” mới bắt đầu.",
-                  "Ép chuyển giao tri thức và liên kết địa phương — tránh chỉ thuê lao động giá rẻ.",
-                ];
-                return (
-                  <article className="info-card reveal" key={title}>
-                    <div className="card-icon">
-                      <Icon />
-                    </div>
-                    <h3>{title}</h3>
-                    <p>{texts[i]}</p>
-                  </article>
-                );
-              })}
+              {["Đào tạo thực chất", "Phụ trợ chọn lọc", "Đầu tư nước ngoài lan tỏa"].map(
+                (title, i) => {
+                  const Icon = pillarIcons[i];
+                  const texts = [
+                    "Chương trình chuẩn quốc tế, thực tập doanh nghiệp — không chỉ con số trên giấy.",
+                    "Nâng vật liệu, cơ khí chính xác, logistics theo nhu cầu chuỗi bán dẫn — không đợi “xong hết” mới bắt đầu.",
+                    "Ép chuyển giao tri thức và liên kết địa phương — tránh chỉ thuê lao động giá rẻ.",
+                  ];
+                  return (
+                    <article className="info-card reveal" key={title}>
+                      <div className="card-icon">
+                        <Icon />
+                      </div>
+                      <h3>{title}</h3>
+                      <p>{texts[i]}</p>
+                    </article>
+                  );
+                },
+              )}
             </div>
           </div>
         </section>
@@ -560,29 +556,23 @@ export default function App() {
             <p className="section-label reveal">
               <CheckCircle2 /> VI · Kết luận
             </p>
-            <h2 className="reveal">Ba điểm then chốt</h2>
+            <h2 className="reveal">Hai câu trả lời — tóm tắt</h2>
             <div className="closing-points">
               <article className="reveal">
                 <span className="idx">01</span>
                 <p>
-                  CMCN là nhảy vọt tư liệu lao động; mỗi cuộc đổi cách sản xuất.
-                  4.0 lấy tri thức–công nghệ–đổi mới làm động lực — nước đi sau
-                  có cửa sổ rút ngắn khoảng cách.
+                  Công nghiệp hóa, hiện đại hóa không bắt buộc tuần tự như thế kỷ
+                  19: Cách mạng công nghiệp lần thứ tư và đi tắt đón đầu cho phép
+                  chọn mắt xích đột phá (như bán dẫn), song song nâng nền tảng —
+                  đúng chiến lược Việt Nam.
                 </p>
               </article>
               <article className="reveal">
                 <span className="idx">02</span>
                 <p>
-                  CNH có nhiều mô hình; Việt Nam học bài rút ngắn của Nhật/NICs —
-                  chiến lược công nghệ nhiều tầng, hội nhập và nội lực.
-                </p>
-              </article>
-              <article className="reveal">
-                <span className="idx">03</span>
-                <p>
-                  CNH–HĐH ở VN là tất yếu để xây CSVCKT CNXH. Trong 4.0: thể chế
-                  sáng tạo + kinh tế tri thức + nhân lực CLC là then chốt — máy
-                  móc/FDI chỉ phát huy khi có năng lực hấp thụ.
+                  Để làm chip, cốt lõi là con người — nguồn nhân lực chất lượng
+                  cao. Máy móc là điều kiện cần; chỉ nhân lực mới hấp thụ công nghệ
+                  và giữ giá trị gia tăng.
                 </p>
               </article>
             </div>
@@ -596,30 +586,14 @@ export default function App() {
             </p>
 
             <p className="thanks reveal">
-              Cảm ơn — sẵn sàng Q&A <Sparkles />
+              Cảm ơn — sẵn sàng hỏi đáp <Sparkles />
             </p>
-
-            <ul className="sources reveal">
-              <li>
-                • Giáo trình Kinh tế chính trị Mác – Lênin (Bộ GDĐT) — Chương 6;
-                Session 24–26: CMCN, mô hình CNH, tất yếu & nội dung CNH–HĐH ở
-                Việt Nam.
-              </li>
-              <li>
-                • Tình huống 50.000 kỹ sư bán dẫn: giả định phục vụ thảo luận học
-                thuật.
-              </li>
-              <li>
-                • Ảnh nền: mạch điện / nhà máy công nghệ (Unsplash) — minh họa
-                chủ đề bán dẫn & CNH.
-              </li>
-            </ul>
           </div>
         </section>
       </main>
 
       <footer className="footer-bar">
-        CNH–HĐH & chiến lược bán dẫn Việt Nam · Kinh tế chính trị Mác – Lênin
+        Công nghiệp hóa, hiện đại hóa và chiến lược bán dẫn Việt Nam · Kinh tế chính trị Mác – Lênin
       </footer>
     </>
   );

@@ -62,8 +62,8 @@ export function RevolutionPath() {
   const steps = [
     { icon: Hammer, label: "1.0", sub: "Hơi nước", tip: "Cơ giới hóa", tone: "a" },
     { icon: Zap, label: "2.0", sub: "Điện", tip: "Điện – cơ khí", tone: "b" },
-    { icon: Cpu, label: "3.0", sub: "CNTT", tip: "Tự động hóa", tone: "c" },
-    { icon: Brain, label: "4.0", sub: "AI · IoT", tip: "Thực – ảo", tone: "d" },
+    { icon: Cpu, label: "3.0", sub: "Công nghệ thông tin", tip: "Tự động hóa", tone: "c" },
+    { icon: Brain, label: "4.0", sub: "Trí tuệ nhân tạo", tip: "Thực – ảo", tone: "d" },
   ];
 
   return (
@@ -108,7 +108,7 @@ export function Box61Table() {
     <div className="viz-panel reveal">
       <div className="viz-head">
         <span className="viz-kicker">Hộp 6.1 · Giáo trình</span>
-        <p className="viz-title">Tóm tắt đặc trưng các cuộc CMCN</p>
+        <p className="viz-title">Tóm tắt đặc trưng các cuộc cách mạng công nghiệp</p>
       </div>
       <div className="box61-grid">
         {box61.map((row, i) => (
@@ -118,7 +118,6 @@ export function Box61Table() {
           </article>
         ))}
       </div>
-      <p className="viz-note">Nguồn: Nghiên cứu của Sogeti VINT, 2016 — trích giáo trình.</p>
     </div>
   );
 }
@@ -127,14 +126,14 @@ export function Box61Table() {
 export function MarxStages() {
   const stages = [
     { title: "Hiệp tác giản đơn", tip: "Tăng năng suất xã hội" },
-    { title: "Công trường thủ công", tip: "Phát triển LLSX" },
+    { title: "Công trường thủ công", tip: "Phát triển lực lượng sản xuất" },
     { title: "Đại công nghiệp", tip: "Xã hội hóa lao động" },
   ];
 
   return (
     <div className="viz-panel reveal marx-panel">
       <div className="viz-head">
-        <span className="viz-kicker">C.Mác · CMCN lần 1</span>
+        <span className="viz-kicker">C.Mác · Cách mạng công nghiệp lần thứ nhất</span>
         <p className="viz-title">Ba giai đoạn phát triển</p>
       </div>
       <div className="marx-stages">
@@ -152,8 +151,8 @@ export function MarxStages() {
         ))}
       </div>
       <p className="viz-note">
-        Ba giai đoạn tăng năng suất · củng cố QHSX tư bản chủ nghĩa · chuyển sản
-        xuất nhỏ thủ công phân tán lên sản xuất lớn tập trung hiện đại.
+        Ba giai đoạn tăng năng suất · củng cố quan hệ sản xuất tư bản chủ nghĩa ·
+        chuyển sản xuất nhỏ thủ công phân tán lên sản xuất lớn tập trung hiện đại.
       </p>
     </div>
   );
@@ -181,8 +180,8 @@ export function RoleCycle() {
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
-        <span className="viz-kicker">3 mũi nhọn</span>
-        <p className="viz-title">Vai trò của CMCN với phát triển</p>
+        <span className="viz-kicker">Ba mũi nhọn</span>
+        <p className="viz-title">Vai trò của cách mạng công nghiệp với phát triển</p>
       </div>
       <div className="role-cycle">
         {items.map((item, i) => {
@@ -238,7 +237,7 @@ export function TechPathsDiagram() {
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
-        <span className="viz-kicker">Nhật Bản & NICs</span>
+        <span className="viz-kicker">Nhật Bản và các nước công nghiệp mới</span>
         <p className="viz-title">Ba con đường tiếp thu công nghệ</p>
       </div>
       <div className="tech-paths">
@@ -265,17 +264,17 @@ export function TechPathsDiagram() {
 export function ContentFlow() {
   const steps = [
     { icon: Rocket, label: "Điều kiện chuyển đổi" },
-    { icon: Cpu, label: "KH–CN & kinh tế tri thức" },
+    { icon: Cpu, label: "Khoa học – công nghệ và kinh tế tri thức" },
     { icon: Workflow, label: "Cơ cấu kinh tế" },
-    { icon: Layers, label: "Hoàn thiện QHSX" },
-    { icon: Brain, label: "Thích ứng 4.0" },
+    { icon: Layers, label: "Hoàn thiện quan hệ sản xuất" },
+    { icon: Brain, label: "Thích ứng lần thứ tư" },
   ];
 
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
         <span className="viz-kicker">Lộ trình nội dung</span>
-        <p className="viz-title">CNH–HĐH ở Việt Nam gồm 5 trụ</p>
+        <p className="viz-title">Công nghiệp hóa, hiện đại hóa ở Việt Nam gồm năm trụ</p>
       </div>
       <div className="content-flow">
         {steps.map((s, i) => {
@@ -328,7 +327,7 @@ export function KnowledgePanel({
   return (
     <div className="viz-panel reveal knowledge-panel">
       <div className="viz-head">
-        <span className="viz-kicker">OECD 1995</span>
+        <span className="viz-kicker">Định nghĩa</span>
         <p className="viz-title">Kinh tế tri thức</p>
       </div>
       <blockquote className="knowledge-quote">{oecd}</blockquote>
@@ -392,12 +391,12 @@ export function LeapfrogDiagram() {
         </div>
         <div className="leap-col new">
           <div className="leap-label hot">Mới</div>
-          <h4>CMCN 4.0 — chọn mắt xích</h4>
+          <h4>Cách mạng công nghiệp lần thứ tư — chọn mắt xích</h4>
           <div className="leap-chip-row">
-            <span>Design</span>
-            <span>Fab</span>
+            <span>Thiết kế</span>
+            <span>Sản xuất chip</span>
             <span className="hl">Nhân lực</span>
-            <span>OSAT</span>
+            <span>Đóng gói kiểm thử</span>
           </div>
           <p>
             Chiếm một mắt xích (vd. kỹ sư / đóng gói) song song nâng phụ trợ —
@@ -419,7 +418,7 @@ export function HumanCoreDiagram() {
       <div className="human-core">
         <div className="hc-side">
           <Factory />
-          <strong>Máy / FDI</strong>
+          <strong>Máy móc / đầu tư nước ngoài</strong>
           <span>Điều kiện cần</span>
         </div>
         <div className="hc-arrow" aria-hidden>
@@ -430,8 +429,8 @@ export function HumanCoreDiagram() {
             <Users />
             <GraduationCap />
           </div>
-          <strong>Nhân lực CLC</strong>
-          <span>Điều kiện đủ — hấp thụ & giữ giá trị</span>
+          <strong>Nhân lực chất lượng cao</strong>
+          <span>Điều kiện đủ — hấp thụ và giữ giá trị</span>
         </div>
         <div className="hc-arrow" aria-hidden>
           <ArrowRight />

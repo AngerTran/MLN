@@ -2019,6 +2019,267 @@ p {
   align-content: start;
 }
 
+/* —— Answer blocks (2 câu hỏi session) —— */
+.q-jump {
+  display: inline-block;
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  border-bottom: 1px solid rgba(27, 77, 62, 0.35);
+}
+
+.q-jump:hover {
+  color: var(--warm);
+  border-color: var(--warm);
+}
+
+.answer-block {
+  margin-top: 2.5rem;
+  padding: 1.75rem 1.5rem 1.85rem;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(26, 46, 40, 0.12);
+  border: 1px solid rgba(27, 77, 62, 0.1);
+  scroll-margin-top: 6rem;
+}
+
+.answer-block + .answer-block {
+  margin-top: 3rem;
+}
+
+.answer-head {
+  margin-bottom: 1.25rem;
+}
+
+.answer-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.answer-badge.warm {
+  background: var(--warm);
+}
+
+.answer-head h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  line-height: 1.35;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.answer-verdict {
+  padding: 1.2rem 1.25rem;
+  border-radius: 16px;
+  background: linear-gradient(165deg, #1b4d3e, #12382e);
+  color: #fff;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 14px 32px rgba(27, 77, 62, 0.25);
+}
+
+.answer-verdict.warm {
+  background: linear-gradient(165deg, #c4782b, #8a4a12);
+  box-shadow: 0 14px 32px rgba(138, 74, 18, 0.28);
+}
+
+.answer-verdict strong {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e8b86a;
+  margin-bottom: 0.5rem;
+}
+
+.answer-verdict p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.answer-label {
+  margin: 1.5rem 0 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm);
+}
+
+.answer-theory-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.answer-theory-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.answer-theory-card {
+  padding: 1.1rem 1rem;
+  border-radius: 14px;
+  background: #f3faf7;
+  border: 1px solid rgba(27, 77, 62, 0.12);
+}
+
+.answer-theory-card svg {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.answer-theory-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.answer-theory-card p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.answer-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.answer-steps li {
+  display: flex;
+  gap: 0.9rem;
+  padding: 1.15rem 1.1rem;
+  border-radius: 14px;
+  background: #f7f3ea;
+  border-left: 4px solid var(--warm);
+}
+
+.answer-steps .step-num {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--warm);
+  flex-shrink: 0;
+}
+
+.answer-steps h4 {
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.answer-steps p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.answer-close {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  padding: 1.2rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(47, 111, 85, 0.1);
+  border: 1px solid rgba(47, 111, 85, 0.22);
+}
+
+.answer-close svg {
+  width: 22px;
+  height: 22px;
+  color: var(--support);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.answer-close p {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.compare-core {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.compare-side {
+  padding: 1.35rem 1.25rem;
+  border-radius: 18px;
+}
+
+.compare-side svg {
+  width: 26px;
+  height: 26px;
+  margin-bottom: 0.55rem;
+}
+
+.compare-side.need {
+  background: #eef2f0;
+  border: 1px solid rgba(26, 46, 40, 0.1);
+}
+
+.compare-side.need svg {
+  color: var(--muted);
+}
+
+.compare-side.core {
+  background: linear-gradient(165deg, #c4782b, #8a4a12);
+  color: #fff;
+  box-shadow: 0 16px 36px rgba(138, 74, 18, 0.28);
+}
+
+.compare-side.core svg {
+  color: #fff;
+}
+
+.compare-side h4 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-bottom: 0.55rem;
+  color: inherit;
+}
+
+.compare-side.need h4 {
+  color: var(--accent);
+}
+
+.compare-side p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.compare-side.need p {
+  color: var(--ink-soft);
+}
+
+.compare-side.core p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.answer-block .viz-panel {
+  margin-top: 1.25rem;
+}
+
 /* Boost biện luận panels too */
 #bien-luan .viz-panel {
   background: #fff;
@@ -2039,7 +2300,10 @@ p {
   .tech-paths,
   .necessity-grid,
   .feature-grid,
-  .adapt40-grid {
+  .adapt40-grid,
+  .answer-theory-grid,
+  .answer-theory-grid.three,
+  .compare-core {
     grid-template-columns: 1fr;
   }
 

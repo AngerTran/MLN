@@ -94,7 +94,7 @@ export default function App() {
       <div className={`top-chrome${scrolled ? " scrolled" : ""}`}>
         <a className={`brand-block${scrolled ? " scrolled" : ""}`} href="#mo-dau">
           <div className="brand-title">Công nghiệp hóa, hiện đại hóa Việt Nam</div>
-          <div className="brand-sub">Lý thuyết 6.1 · Kỷ nguyên cách mạng công nghiệp lần thứ tư</div>
+          <div className="brand-sub">Mục 6.1.1 – 6.1.2</div>
         </a>
         <PillNav
           items={navItems}
@@ -116,18 +116,18 @@ export default function App() {
             </div>
             <h1>Công nghiệp hóa, hiện đại hóa ở Việt Nam</h1>
             <p className="hero-sub">
-              Lý thuyết 6.1.1–6.1.2: từ cách mạng công nghiệp đến công nghiệp hóa, hiện đại hóa trong
-              Kỷ nguyên cách mạng công nghiệp lần thứ tư — gắn tình huống chiến lược bán dẫn
+              Từ cách mạng công nghiệp đến công nghiệp hóa, hiện đại hóa trong bối
+              cảnh Cách mạng công nghiệp lần thứ tư — gắn chiến lược bán dẫn Việt Nam
             </p>
             <div className="hero-meta">
               <span className="hero-chip">
                 <BookOpen /> Mục 6.1.1 – 6.1.2
               </span>
               <span className="hero-chip">
-                <Sparkles /> Lý thuyết · 10–15 phút
+                <Sparkles /> 10–15 phút
               </span>
               <span className="hero-chip">
-                <HelpCircle /> + Tình huống chip
+                <HelpCircle /> Tình huống · biện luận
               </span>
             </div>
             <div className="scroll-cue">
@@ -139,24 +139,25 @@ export default function App() {
         <section className="section" id="tinh-huong">
           <div className="wrap">
             <p className="section-label reveal">
-              <Sparkles /> Câu chuyện mở đầu
+              <Sparkles /> Tình huống
             </p>
-            <h2 className="reveal">Giấc mơ 50.000 kỹ sư bán dẫn</h2>
+            <h2 className="reveal">50.000 kỹ sư bán dẫn và chuỗi cung ứng toàn cầu</h2>
             <div className="story-grid">
               <article className="story-card reveal">
                 <p className="kicker">
-                  <Cpu /> Tình huống giả định
+                  <Cpu /> Tình huống
                 </p>
-                <h3>Việt Nam muốn vào chuỗi chip toàn cầu</h3>
+                <h3>Việt Nam tham gia chuỗi chip toàn cầu</h3>
                 <p className="body-text">
-                  Chính phủ đặt mục tiêu đào tạo 50.000 kỹ sư bán dẫn và trở thành
-                  mắt xích quan trọng cạnh các ông lớn như Nvidia, Intel. Chip
-                  không chỉ là một sản phẩm — mà là hạ tầng của cách mạng công nghiệp lần thứ tư: trí tuệ nhân tạo, điện toán, tự động hóa.
+                  Việt Nam đặt mục tiêu đào tạo 50.000 kỹ sư bán dẫn và tham gia
+                  chuỗi cung ứng chip toàn cầu. Bán dẫn là hạ tầng của Cách mạng
+                  công nghiệp lần thứ tư, gắn với trí tuệ nhân tạo, điện toán và
+                  tự động hóa.
                 </p>
                 <p className="body-text">
-                  Ngay lập tức nổi lên hai luồng ý kiến đối lập: một bên thấy đây
-                  là duy ý chí khi phụ trợ còn yếu; một bên tin cách mạng công nghiệp lần thứ tư cho phép
-                  nước đi sau nhảy vọt.
+                  Hai quan điểm đối lập: một bên cảnh báo nguy cơ duy ý chí khi
+                  công nghiệp phụ trợ còn hạn chế; một bên khẳng định Cách mạng
+                  công nghiệp lần thứ tư tạo điều kiện đi tắt đón đầu.
                 </p>
               </article>
               <div className="stat-stack reveal">
@@ -165,21 +166,21 @@ export default function App() {
                     <GraduationCap />
                   </div>
                   <strong>50.000</strong>
-                  <span>kỹ sư bán dẫn — mục tiêu giả định</span>
+                  <span>kỹ sư bán dẫn — mục tiêu</span>
                 </div>
                 <div className="stat">
                   <div className="stat-icon">
                     <Link2 />
                   </div>
                   <strong>Mắt xích</strong>
-                  <span>trong chuỗi chip toàn cầu (thiết kế / sản xuất chip / đóng gói kiểm thử)</span>
+                  <span>thiết kế · sản xuất chip · đóng gói kiểm thử</span>
                 </div>
                 <div className="stat">
                   <div className="stat-icon">
                     <Brain />
                   </div>
                   <strong>Cách mạng công nghiệp lần thứ tư</strong>
-                  <span>trí tuệ nhân tạo · dữ liệu lớn · kết nối — nền tảng xuyên ngành</span>
+                  <span>trí tuệ nhân tạo · dữ liệu lớn · kết nối</span>
                 </div>
               </div>
             </div>
@@ -189,28 +190,21 @@ export default function App() {
                 <span className="tag">
                   <MessageCircleWarning /> Phản biện
                 </span>
-                <h3>Lo ngại duy ý chí</h3>
+                <h3>Nguy cơ duy ý chí</h3>
                 <p>
-                  Nền công nghiệp cơ khí còn yếu, đến con ốc vít làm chưa chuẩn,
-                  công nghiệp phụ trợ lẹt đẹt. Tại sao lại mơ làm thứ khó nhất
-                  thế giới là chip?
-                </p>
-                <p className="quote">
-                  “Đây có phải tư duy nóng vội, duy ý chí không?”
+                  Công nghiệp cơ khí và phụ trợ còn hạn chế. Chiến lược bán dẫn
+                  có nguy cơ duy ý chí nếu thiếu nền tảng và lộ trình năng lực.
                 </p>
               </article>
               <article className="debate-card support reveal">
                 <span className="tag">
                   <Rocket /> Ủng hộ
                 </span>
-                <h3>Cửa sổ nhảy vọt</h3>
+                <h3>Đi tắt đón đầu</h3>
                 <p>
-                  Nếu cứ đợi làm xong ốc vít mới làm chip thì mãi mãi đi sau.
-                  Cách mạng công nghiệp lần thứ tư cho phép các nước đi sau có thể nhảy vọt — đi tắt đón
-                  đầu.
-                </p>
-                <p className="quote">
-                  “Không nhảy bây giờ, cửa sổ sẽ đóng.”
+                  Chờ hoàn thiện toàn bộ công nghiệp phụ trợ rồi mới phát triển
+                  bán dẫn sẽ kéo dài khoảng cách. Cách mạng công nghiệp lần thứ tư
+                  tạo điều kiện cho nước đi sau bứt phá có chọn lọc.
                 </p>
               </article>
             </div>
@@ -221,7 +215,7 @@ export default function App() {
                   <span className="q-num">{q.num}</span>
                   <p>{q.question}</p>
                   <a className="q-jump" href={`#tra-loi-${q.id}`}>
-                    Xem câu trả lời ↓
+                    Đến phần trả lời
                   </a>
                 </article>
               ))}
@@ -236,8 +230,9 @@ export default function App() {
             </p>
             <h2 className="reveal">Công nghiệp hóa, hiện đại hóa ở Việt Nam</h2>
             <p className="lead reveal">
-              Khung lý thuyết để thuyết trình 10–15 phút: cách mạng công nghiệp → mô hình công nghiệp hóa thế
-              giới → tính tất yếu và nội dung công nghiệp hóa, hiện đại hóa Việt Nam trong bối cảnh cách mạng công nghiệp lần thứ tư.
+              Cách mạng công nghiệp · mô hình công nghiệp hóa thế giới · tính tất
+              yếu và nội dung công nghiệp hóa, hiện đại hóa ở Việt Nam trong bối
+              cảnh Cách mạng công nghiệp lần thứ tư.
             </p>
 
             <TheoryAgenda items={theoryAgenda} />
@@ -250,8 +245,8 @@ export default function App() {
             <p className="lead reveal">{cmcnDefinition}</p>
 
             <blockquote className="quote-block reveal">
-              Áp dụng phổ biến những tính năng mới trong kỹ thuật – công nghệ vào
-              đời sống xã hội — đó là bản chất của mỗi cuộc cách mạng công nghiệp.
+              Bản chất: nhảy vọt về chất của tư liệu lao động và thay đổi phân
+              công lao động xã hội.
             </blockquote>
 
             <RevolutionPath />
@@ -362,7 +357,7 @@ export default function App() {
             <FigureImage
               src="/images/theory-modern.jpg"
               alt="Đô thị và hiện đại hóa"
-              caption="công nghiệp hóa, hiện đại hóa gắn hội nhập, kinh tế tri thức và mục tiêu dân giàu, nước mạnh."
+              caption="Công nghiệp hóa, hiện đại hóa gắn hội nhập, kinh tế tri thức và mục tiêu dân giàu, nước mạnh."
             />
             <div className="feature-grid">
               {vnFeatures.map((f, i) => {
@@ -388,8 +383,8 @@ export default function App() {
             </p>
             <h2 className="reveal">Nội dung công nghiệp hóa, hiện đại hóa ở Việt Nam</h2>
             <p className="lead reveal">
-              Từ tạo lập điều kiện chuyển đổi đến sẵn sàng thích ứng cách mạng công nghiệp lần thứ tư —
-              khung nội dung gắn kinh tế tri thức và nhân lực chất lượng cao.
+              Từ tạo lập điều kiện chuyển đổi đến thích ứng Cách mạng công nghiệp
+              lần thứ tư — gắn kinh tế tri thức và nhân lực chất lượng cao.
             </p>
             <ContentFlow />
             <div className="timeline">
@@ -417,7 +412,7 @@ export default function App() {
             />
 
             <p className="section-label reveal theory-sublabel">
-              <Cpu /> Thích ứng cách mạng công nghiệp lần thứ tư
+              <Cpu /> Thích ứng Cách mạng công nghiệp lần thứ tư
             </p>
             <h2 className="reveal theory-h2">Bốn nhóm nội dung then chốt</h2>
             <Adapt40Grid items={adapt40} />
@@ -427,13 +422,13 @@ export default function App() {
         <section className="section" id="bien-luan">
           <div className="wrap">
             <p className="section-label reveal">
-              <Lightbulb /> Biện luận · Trả lời hai câu hỏi
+              <Lightbulb /> Biện luận
             </p>
-            <h2 className="reveal">Dùng lý thuyết session để trả lời</h2>
+            <h2 className="reveal">Trả lời hai câu hỏi</h2>
             <p className="lead reveal">
-              Hai câu trả lời dưới đây bám đặc điểm Cách mạng công nghiệp lần thứ
-              tư, lý luận đi tắt đón đầu, mô hình công nghiệp hóa rút ngắn, kinh tế
-              tri thức và nội dung công nghiệp hóa, hiện đại hóa ở Việt Nam.
+              Dựa trên đặc điểm Cách mạng công nghiệp lần thứ tư, lý luận đi tắt
+              đón đầu, mô hình công nghiệp hóa rút ngắn, kinh tế tri thức và nội
+              dung công nghiệp hóa, hiện đại hóa ở Việt Nam.
             </p>
 
             {/* —— Câu hỏi 01 —— */}
@@ -448,7 +443,7 @@ export default function App() {
                 <p>{answerQuestion1.verdict}</p>
               </div>
 
-              <p className="answer-label">Lý thuyết session dùng để biện luận</p>
+              <p className="answer-label">Cơ sở lý thuyết</p>
               <div className="answer-theory-grid">
                 {answerQuestion1.theoryHooks.map((hook) => (
                   <div className="answer-theory-card" key={hook.title}>
@@ -492,7 +487,7 @@ export default function App() {
                 <p>{answerQuestion2.verdict}</p>
               </div>
 
-              <p className="answer-label">Lý thuyết session dùng để phân tích</p>
+              <p className="answer-label">Cơ sở lý thuyết</p>
               <div className="answer-theory-grid three">
                 {answerQuestion2.theoryHooks.map((hook) => (
                   <div className="answer-theory-card" key={hook.title}>
@@ -525,28 +520,30 @@ export default function App() {
             </article>
 
             <p className="section-label reveal" style={{ marginTop: "3rem" }}>
-              <Rocket /> Điều kiện để không rơi vào duy ý chí
+              <Rocket /> Điều kiện bảo đảm tính khả thi
             </p>
             <div className="card-grid">
-              {["Đào tạo thực chất", "Phụ trợ chọn lọc", "Đầu tư nước ngoài lan tỏa"].map(
-                (title, i) => {
-                  const Icon = pillarIcons[i];
-                  const texts = [
-                    "Chương trình chuẩn quốc tế, thực tập doanh nghiệp — không chỉ con số trên giấy.",
-                    "Nâng vật liệu, cơ khí chính xác, logistics theo nhu cầu chuỗi bán dẫn — không đợi “xong hết” mới bắt đầu.",
-                    "Ép chuyển giao tri thức và liên kết địa phương — tránh chỉ thuê lao động giá rẻ.",
-                  ];
-                  return (
-                    <article className="info-card reveal" key={title}>
-                      <div className="card-icon">
-                        <Icon />
-                      </div>
-                      <h3>{title}</h3>
-                      <p>{texts[i]}</p>
-                    </article>
-                  );
-                },
-              )}
+              {[
+                "Đào tạo gắn chuẩn mực chuyên môn và thực tiễn doanh nghiệp.",
+                "Phát triển công nghiệp phụ trợ có chọn lọc theo nhu cầu chuỗi bán dẫn.",
+                "Thu hút đầu tư nước ngoài gắn chuyển giao tri thức và liên kết địa phương.",
+              ].map((text, i) => {
+                const titles = [
+                  "Đào tạo",
+                  "Phụ trợ chọn lọc",
+                  "Đầu tư lan tỏa",
+                ];
+                const Icon = pillarIcons[i];
+                return (
+                  <article className="info-card reveal" key={titles[i]}>
+                    <div className="card-icon">
+                      <Icon />
+                    </div>
+                    <h3>{titles[i]}</h3>
+                    <p>{text}</p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -554,46 +551,38 @@ export default function App() {
         <section className="section section-alt closing" id="ket-luan">
           <div className="wrap">
             <p className="section-label reveal">
-              <CheckCircle2 /> VI · Kết luận
+              <CheckCircle2 /> Kết luận
             </p>
-            <h2 className="reveal">Hai câu trả lời — tóm tắt</h2>
+            <h2 className="reveal">Hai điểm then chốt</h2>
             <div className="closing-points">
               <article className="reveal">
                 <span className="idx">01</span>
                 <p>
-                  Công nghiệp hóa, hiện đại hóa không bắt buộc tuần tự như thế kỷ
-                  19: Cách mạng công nghiệp lần thứ tư và đi tắt đón đầu cho phép
-                  chọn mắt xích đột phá (như bán dẫn), song song nâng nền tảng —
-                  đúng chiến lược Việt Nam.
+                  Công nghiệp hóa, hiện đại hóa không bắt buộc tuân trình tự thế
+                  kỷ 19. Cách mạng công nghiệp lần thứ tư và lý luận đi tắt đón đầu
+                  cho phép lựa chọn mắt xích đột phá, đồng thời củng cố nền tảng —
+                  phù hợp chiến lược của Việt Nam.
                 </p>
               </article>
               <article className="reveal">
                 <span className="idx">02</span>
                 <p>
-                  Để làm chip, cốt lõi là con người — nguồn nhân lực chất lượng
-                  cao. Máy móc là điều kiện cần; chỉ nhân lực mới hấp thụ công nghệ
-                  và giữ giá trị gia tăng.
+                  Trong phát triển bán dẫn, yếu tố cốt lõi là nguồn nhân lực chất
+                  lượng cao. Máy móc là điều kiện cần; nhân lực quyết định hấp thụ
+                  công nghệ và giữ giá trị gia tăng.
                 </p>
               </article>
             </div>
 
-            <p className="poem reveal">
-              Không phải bỏ ốc vít để mơ chip —
-              <br />
-              mà làm chip để kéo cả nền tảng lên.
-              <br />
-              Nhảy vọt chỉ bền khi có người đủ sức giữ lấy nó.
-            </p>
-
             <p className="thanks reveal">
-              Cảm ơn — sẵn sàng hỏi đáp <Sparkles />
+              Cảm ơn quý thầy cô và các bạn <Sparkles />
             </p>
           </div>
         </section>
       </main>
 
       <footer className="footer-bar">
-        Công nghiệp hóa, hiện đại hóa và chiến lược bán dẫn Việt Nam · Kinh tế chính trị Mác – Lênin
+        Công nghiệp hóa, hiện đại hóa ở Việt Nam · Kinh tế chính trị Mác – Lênin
       </footer>
     </>
   );

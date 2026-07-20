@@ -414,7 +414,7 @@ p {
 
 .section-band {
   background:
-    linear-gradient(120deg, rgba(10, 28, 24, 0.78), rgba(27, 77, 62, 0.72)),
+    linear-gradient(120deg, rgba(8, 22, 18, 0.88), rgba(15, 42, 34, 0.84)),
     url("/images/section-factory.jpg") center / cover no-repeat;
   color: #f5f2ea;
 }
@@ -423,15 +423,16 @@ p {
   color: #e8b86a;
 }
 
-.section-band h2,
 .section-band .lead,
-.section-band .body-text {
-  color: #f5f2ea;
+.section-band .body-text,
+.section-band .nec-close {
+  color: rgba(245, 242, 234, 0.92);
+  opacity: 1;
 }
 
-.section-band .lead,
-.section-band .body-text {
-  opacity: 0.9;
+.section-band .nec-close {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .wrap {
@@ -461,6 +462,11 @@ p {
   margin-bottom: 1rem;
   max-width: 22ch;
   color: var(--accent);
+}
+
+.section.section-band h2 {
+  color: #f7f3ea;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
 }
 
 .lead {

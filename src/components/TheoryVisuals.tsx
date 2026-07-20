@@ -42,8 +42,8 @@ export function TheoryAgenda({
   return (
     <div className="viz-panel agenda-panel reveal">
       <div className="viz-head">
-        <span className="viz-kicker">Lộ trình 10–15 phút</span>
-        <p className="viz-title">Khung thuyết trình lý thuyết</p>
+        <span className="viz-kicker">10–15 phút</span>
+        <p className="viz-title">Khung thuyết trình</p>
       </div>
       <ol className="agenda-track">
         {items.map((item) => (
@@ -69,7 +69,7 @@ export function RevolutionPath() {
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
-        <span className="viz-kicker">Nhìn một phát là hiểu</span>
+        <span className="viz-kicker">Tóm tắt</span>
         <p className="viz-title">Bốn cuộc cách mạng công nghiệp</p>
       </div>
       <div className="rev-path">
@@ -95,8 +95,8 @@ export function RevolutionPath() {
         })}
       </div>
       <p className="viz-note">
-        Mỗi bước = nhảy vọt về chất của tư liệu lao động → phân công lao động và
-        năng suất thay đổi căn bản.
+        Mỗi cuộc cách mạng công nghiệp là bước nhảy vọt về chất của tư liệu lao
+        động, kéo theo thay đổi phân công lao động và năng suất.
       </p>
     </div>
   );
@@ -180,8 +180,8 @@ export function RoleCycle() {
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
-        <span className="viz-kicker">Ba mũi nhọn</span>
-        <p className="viz-title">Vai trò của cách mạng công nghiệp với phát triển</p>
+        <span className="viz-kicker">Ba vai trò</span>
+        <p className="viz-title">Vai trò của cách mạng công nghiệp đối với phát triển</p>
       </div>
       <div className="role-cycle">
         {items.map((item, i) => {
@@ -251,7 +251,7 @@ export function TechPathsDiagram() {
             <p>{p.text}</p>
             {p.highlight && (
               <span className="tech-badge">
-                <Sparkles /> Gợi ý cho Việt Nam
+                <Sparkles /> Phù hợp với Việt Nam
               </span>
             )}
           </article>
@@ -371,13 +371,13 @@ export function LeapfrogDiagram() {
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
-        <span className="viz-kicker">Trái tim biện luận</span>
-        <p className="viz-title">Tuần tự thế kỷ 19 vs Đi tắt đón đầu 4.0</p>
+        <span className="viz-kicker">So sánh</span>
+        <p className="viz-title">Trình tự thế kỷ 19 và đi tắt đón đầu</p>
       </div>
       <div className="leap-grid">
         <div className="leap-col old">
-          <div className="leap-label">Cũ</div>
-          <h4>Thế kỷ 19 — tuyến tính</h4>
+          <div className="leap-label">Thế kỷ 19</div>
+          <h4>Trình tự tuyến tính</h4>
           <div className="leap-steps">
             <span>Cơ khí</span>
             <ArrowRight />
@@ -387,11 +387,11 @@ export function LeapfrogDiagram() {
             <ArrowRight />
             <span>Điện…</span>
           </div>
-          <p>Phải đi lần lượt vì tri thức & vốn lan chậm.</p>
+          <p>Tri thức và vốn lan truyền chậm; phải đi lần lượt.</p>
         </div>
         <div className="leap-col new">
-          <div className="leap-label hot">Mới</div>
-          <h4>Cách mạng công nghiệp lần thứ tư — chọn mắt xích</h4>
+          <div className="leap-label hot">Hiện nay</div>
+          <h4>Chuỗi toàn cầu phân đoạn</h4>
           <div className="leap-chip-row">
             <span>Thiết kế</span>
             <span>Sản xuất chip</span>
@@ -399,8 +399,8 @@ export function LeapfrogDiagram() {
             <span>Đóng gói kiểm thử</span>
           </div>
           <p>
-            Chiếm một mắt xích (vd. kỹ sư / đóng gói) song song nâng phụ trợ —
-            không bắt buộc “xong ốc vít mới làm chip”.
+            Có thể tham gia một mắt xích trước khi hoàn thiện toàn bộ công nghiệp
+            phụ trợ, đồng thời nâng cấp phụ trợ có chọn lọc.
           </p>
         </div>
       </div>
@@ -412,8 +412,8 @@ export function HumanCoreDiagram() {
   return (
     <div className="viz-panel reveal">
       <div className="viz-head">
-        <span className="viz-kicker">Câu trả lời 02</span>
-        <p className="viz-title">Con người ở trung tâm chuỗi chip</p>
+        <span className="viz-kicker">Câu hỏi 02</span>
+        <p className="viz-title">Con người ở trung tâm chuỗi bán dẫn</p>
       </div>
       <div className="human-core">
         <div className="hc-side">

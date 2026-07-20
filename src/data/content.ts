@@ -243,26 +243,6 @@ export const adapt40 = [
   },
 ];
 
-export const theoryAgenda = [
-  { time: "0–2'", label: "Mở đầu", tip: "Tình huống · hai câu hỏi" },
-  {
-    time: "2–6'",
-    label: "Cách mạng công nghiệp",
-    tip: "Khái niệm · bốn cuộc · ba vai trò",
-  },
-  {
-    time: "6–9'",
-    label: "Công nghiệp hóa thế giới",
-    tip: "Định nghĩa · ba mô hình · ba con đường",
-  },
-  {
-    time: "9–13'",
-    label: "Việt Nam",
-    tip: "Tất yếu · đặc điểm · nội dung",
-  },
-  { time: "13–15'", label: "Biện luận", tip: "Hai câu hỏi" },
-];
-
 export const sessionQuestions = [
   {
     id: "q1",

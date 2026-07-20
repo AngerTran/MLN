@@ -34,30 +34,6 @@ export function FigureImage({
   );
 }
 
-export function TheoryAgenda({
-  items,
-}: {
-  items: { time: string; label: string; tip: string }[];
-}) {
-  return (
-    <div className="viz-panel agenda-panel reveal">
-      <div className="viz-head">
-        <span className="viz-kicker">10–15 phút</span>
-        <p className="viz-title">Khung thuyết trình</p>
-      </div>
-      <ol className="agenda-track">
-        {items.map((item) => (
-          <li key={item.label}>
-            <span className="agenda-time">{item.time}</span>
-            <strong>{item.label}</strong>
-            <span className="agenda-tip">{item.tip}</span>
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
-}
-
 export function RevolutionPath() {
   const steps = [
     { icon: Hammer, label: "1.0", sub: "Hơi nước", tip: "Cơ giới hóa", tone: "a" },

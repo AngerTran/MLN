@@ -34,7 +34,6 @@ import {
   revolutions,
   rolesOfRevolution,
   sessionQuestions,
-  theoryAgenda,
   vnCnhDef,
   vnContents,
   vnFeatures,
@@ -56,7 +55,6 @@ import {
   RevolutionPath,
   RoleCycle,
   TechPathsDiagram,
-  TheoryAgenda,
 } from "./components/TheoryVisuals";
 import { useActiveSection } from "./hooks/useActiveSection";
 import { useReveal } from "./hooks/useReveal";
@@ -234,8 +232,6 @@ export default function App() {
               yếu và nội dung công nghiệp hóa, hiện đại hóa ở Việt Nam trong bối
               cảnh Cách mạng công nghiệp lần thứ tư.
             </p>
-
-            <TheoryAgenda items={theoryAgenda} />
 
             {/* —— 6.1.1.1 Cách mạng công nghiệp —— */}
             <p className="section-label reveal theory-sublabel">
